@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.4
+
+- Added iOS local notifications for download completion/failure via flutter_local_notifications.
+- Added iOS notification permission request in DownloadManager.
+
 ## 1.0.3
 
 - Added example screenshots to README and updated image links to render correctly on pub.dev.
