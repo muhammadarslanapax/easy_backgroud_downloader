@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+- Updated package metadata links to the original repository.
+- Updated README with original repository link.
+
 ## 0.1.1
 
 - Made the package state-management agnostic: removed required `provider` dependency.

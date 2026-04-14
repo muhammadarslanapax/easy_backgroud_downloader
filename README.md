@@ -15,11 +15,15 @@ Google Drive style background downloader for Flutter with:
 - Recover in-progress tasks after app restart
 - Supports Android and iOS
 
+## Original repository
+
+- https://github.com/muhammadarslanapax/easy_backgroud_downloader
+
 ## Installation
 
 ```yaml
 dependencies:
-  easy_backgroud_downloader: ^0.1.1
+  easy_backgroud_downloader: ^0.1.2
 ```
 
 ## Usage

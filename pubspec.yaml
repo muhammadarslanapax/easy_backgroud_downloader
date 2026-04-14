@@ -1,8 +1,8 @@
 name: easy_backgroud_downloader
 description: Google Drive style background downloader UI and manager for Flutter.
-homepage: https://github.com/mbpm1/easy_backgroud_downloader
-repository: https://github.com/mbpm1/easy_backgroud_downloader
-issue_tracker: https://github.com/mbpm1/easy_backgroud_downloader/issues
+homepage: https://github.com/muhammadarslanapax/easy_backgroud_downloader
+repository: https://github.com/muhammadarslanapax/easy_backgroud_downloader
+issue_tracker: https://github.com/muhammadarslanapax/easy_backgroud_downloader/issues
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -16,7 +16,7 @@ issue_tracker: https://github.com/mbpm1/easy_backgroud_downloader/issues
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 0.1.1
+version: 0.1.2
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
