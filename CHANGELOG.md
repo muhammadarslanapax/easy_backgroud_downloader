@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.6
+
+- Updated README for pub.dev: installation version and iOS/Android notification behavior note.
+
 ## 1.0.5
 
 - Reverted 1.0.4 iOS local notification integration.

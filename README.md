@@ -23,7 +23,7 @@ Google Drive style background downloader for Flutter with:
 
 ```yaml
 dependencies:
-  easy_backgroud_downloader: ^0.1.2
+  easy_backgroud_downloader: ^1.0.6
 ```
 
 ## Usage
@@ -129,6 +129,9 @@ In `ios/Runner/Info.plist` add:
   <string>fetch</string>
 </array>
 ```
+
+Note: Android shows system download notifications (`showNotification: true`).
+iOS behavior can differ and may not show the same persistent progress notification UI.
 
 ## Example
 
