@@ -142,6 +142,14 @@ flutter pub get
 flutter run
 ```
 
+## Example screenshots
+
+![Example screenshot 1](https://raw.githubusercontent.com/muhammadarslanapax/easy_backgroud_downloader/main/screenshots/s1.png)
+![Example screenshot 2](https://raw.githubusercontent.com/muhammadarslanapax/easy_backgroud_downloader/main/screenshots/s2.png)
+![Example screenshot 3](https://raw.githubusercontent.com/muhammadarslanapax/easy_backgroud_downloader/main/screenshots/s3.png)
+![Example screenshot 4](https://raw.githubusercontent.com/muhammadarslanapax/easy_backgroud_downloader/main/screenshots/s4.png)
+![Example screenshot 5](https://raw.githubusercontent.com/muhammadarslanapax/easy_backgroud_downloader/main/screenshots/s5.png)
+
 ## State management integration
 
 `DownloadManager` is a `ChangeNotifier`, so you can:

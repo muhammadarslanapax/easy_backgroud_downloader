@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Updated README screenshot links to absolute GitHub URLs so screenshots render on pub.dev package page.
+
 ## 0.1.2
 
 - Updated package metadata links to the original repository.
