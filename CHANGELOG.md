@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Added example screenshots to README and updated image links to render correctly on pub.dev.
+
 ## 0.1.3
 
 - Updated README screenshot links to absolute GitHub URLs so screenshots render on pub.dev package page.
