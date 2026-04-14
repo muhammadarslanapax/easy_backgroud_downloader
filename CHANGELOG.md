@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.5
+
+- Reverted 1.0.4 iOS local notification integration.
+- Removed `flutter_local_notifications` dependency.
+
 ## 1.0.4
 
 - Added iOS local notifications for download completion/failure via flutter_local_notifications.

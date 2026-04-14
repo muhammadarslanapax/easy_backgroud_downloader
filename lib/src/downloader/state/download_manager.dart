@@ -4,7 +4,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -40,13 +39,10 @@ class DownloadManager extends ChangeNotifier {
   static const String portName = 'downloader_send_port';
 
   final ReceivePort _port = ReceivePort();
-  final FlutterLocalNotificationsPlugin _localNotifications =
-      FlutterLocalNotificationsPlugin();
   final List<DownloadFile> _files;
   final Map<String, DownloadTaskEntry> _entriesByFileId =
       <String, DownloadTaskEntry>{};
   bool _initialized = false;
-  bool _localNotificationsReady = false;
   String? _errorMessage;
 
   bool get initialized => _initialized;
@@ -60,7 +56,6 @@ class DownloadManager extends ChangeNotifier {
       return;
     }
     await FlutterDownloader.initialize(debug: false, ignoreSsl: false);
-    await _initializeLocalNotifications();
     _bindBackgroundIsolate();
     FlutterDownloader.registerCallback(downloadCallback);
     await _restoreTasks();
@@ -241,60 +236,12 @@ class DownloadManager extends ChangeNotifier {
 
       matchedEntry.status = status;
       matchedEntry.progress = progress;
-      _maybeNotifyIosStatusChange(matchedEntry);
       notifyListeners();
     });
   }
 
-  Future<void> _initializeLocalNotifications() async {
-    const DarwinInitializationSettings iosInitSettings =
-        DarwinInitializationSettings();
-    const InitializationSettings settings = InitializationSettings(
-      iOS: iosInitSettings,
-    );
-    await _localNotifications.initialize(settings);
-    _localNotificationsReady = true;
-  }
-
-  Future<void> _maybeNotifyIosStatusChange(DownloadTaskEntry entry) async {
-    if (!Platform.isIOS || !_localNotificationsReady) {
-      return;
-    }
-    if (entry.status != DownloadTaskStatus.complete &&
-        entry.status != DownloadTaskStatus.failed) {
-      return;
-    }
-
-    final String title = entry.status == DownloadTaskStatus.complete
-        ? 'Download completed'
-        : 'Download failed';
-    final String body = entry.status == DownloadTaskStatus.complete
-        ? entry.file.title
-        : 'Could not download ${entry.file.title}';
-
-    const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
-      presentAlert: true,
-      presentBadge: true,
-      presentSound: true,
-    );
-    const NotificationDetails details = NotificationDetails(iOS: iosDetails);
-
-    await _localNotifications.show(
-      entry.taskId.hashCode,
-      title,
-      body,
-      details,
-    );
-  }
-
   Future<bool> _ensurePermissions() async {
     if (Platform.isAndroid) {
-      final PermissionStatus status = await Permission.notification.request();
-      if (status.isDenied || status.isPermanentlyDenied) {
-        return false;
-      }
-    }
-    if (Platform.isIOS) {
       final PermissionStatus status = await Permission.notification.request();
       if (status.isDenied || status.isPermanentlyDenied) {
         return false;
