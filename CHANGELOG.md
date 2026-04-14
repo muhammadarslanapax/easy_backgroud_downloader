@@ -1,0 +1,15 @@
+# Changelog
+
+## 0.1.1
+
+- Made the package state-management agnostic: removed required `provider` dependency.
+- Updated `DownloadHomeScreen` to accept a `DownloadManager` directly.
+- Updated README and example app to show usage with any state management approach.
+
+## 0.1.0
+
+- Initial release of `easy_backgroud_downloader`.
+- Added `DownloadManager` for background download lifecycle management.
+- Added default catalog (`DownloadCatalog`) and `DownloadFile` model.
+- Added ready-to-use UI: `DownloadHomeScreen` and `DownloadTile`.
+- Added Android and iOS integration instructions in README.
